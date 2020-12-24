@@ -1,7 +1,7 @@
 /*=========================================================================
  * Author : Minseob Lee
  * 2020.11.14 Declares a model class with for mainwindow
- * 2020.11.14 This class's role is model(data) for main window
+ * 2020.11.14 This class's role is a model(data) for main window
  *=========================================================================*/
 
 #pragma once

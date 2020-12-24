@@ -87,6 +87,18 @@ void MainWindow::QWarning(std::string message)
     alert->exec();
 }
 
+UserResponse MainWindow::QRequest(std::string message)
+{
+	QMessageBox *alert = new QMessageBox;
+	alert->setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
+	QString qmessagestr = QString::fromStdString(message);
+	alert->setText(qmessagestr);
+	int response = alert->exec();
+	if (response == QMessageBox::Ok) return OK;
+	else if (response == QMessageBox::Cancel) return CANCEL;
+	return CANCEL;
+}
+
 bool MainWindow::QFileWarningMacro(Status status)
 {
     switch (status)
@@ -157,8 +169,16 @@ void MainWindow::on_AddButton_clicked()
 
 void MainWindow::on_actionSave_Files_triggered()
 {
-    if (ui->listWidget->count() == 0) return; // nothing to save
+	unsigned int selected_items = ui->listWidget->selectedItems().count();
+	if (selected_items == 0)
+	{
+		QFileWarningMacro(FILE_NOT_SELECTED);
+		return; // nothing to save
+	}
 
+	UserResponse response = QRequest("Save " + std::to_string(selected_items) + " Image Files ? ");
+	if (response == CANCEL) return;
+	
     OutputFileManager <QString>* outputfilemanager = new OutputFileManager<QString>();
     QString Save_Folder_Path = QFileDialog::getExistingDirectory(this, tr("Select a folder"),
         ".", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);

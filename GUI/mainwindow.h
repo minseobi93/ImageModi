@@ -55,6 +55,7 @@ private slots:
 private:
 
     bool QFileWarningMacro(Status status);
+	UserResponse QRequest(std::string message);
     void QWarning(std::string message);
     void QIllegalFilesReport(QStringList Illegal_FileNames);
     void QlistWidgetUpdate();

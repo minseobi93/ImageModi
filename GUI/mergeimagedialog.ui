@@ -172,7 +172,7 @@
     <bool>true</bool>
    </property>
    <property name="plainText">
-    <string>Save File To </string>
+    <string>Export To </string>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButton_2">

@@ -24,4 +24,10 @@ enum Status
 	FILESIZE_MODIFYING,
 };
 
+enum UserResponse
+{
+	OK,
+	CANCEL,
+};
+
 #endif 
