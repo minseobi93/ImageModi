@@ -1,0 +1,23 @@
+How to Build 
+
+Step 1. Download 
+    
+    1.1 Download IDE (which has c++ compiler) or C++ compiler (MSVC, Xcode, gcc... )
+    1.2 ImageModi Source Code
+    1.3 CMake (Above 5.3.0 recommended) https://cmake.org/download/
+    1.4 ITK (Above 4.5.2 recommended) https://itk.org/download
+    1.5 QT (Above 3.16.0 recommended) https://www.qt.io/offline-installers
+    
+Step 2. Build ITK
+   
+Step 3. Run CMake binary
+  
+    3.1 Browse and Enter ImageModi Source Code path
+    3.2 Browse and Enter a path to build the program
+    3.3 Press "Configure". If CMake can't find ITK_DIR, browse and find built ITK from step 2.
+                           If CMake can't find QT, browse and find QT Dir to include
+   
+    3.4 If configure is done, Press Generate.
+ 
+Step 4. Build your project file.
+      
